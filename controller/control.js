@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const books = [
   {
     id: 1,
@@ -41,8 +43,17 @@ const books = [
   },
 ];
 
+// function handleGetAllBooks(request, response) {
+//   //   const htmlFile = fs.readFileSync(path.resolve("book.html"), "utf-8");
+//   //   const Final = htmlFile.replace("books", JSON.stringify(books));
+//   //   response.end(Final);
+//   response.json({ books });
+// }
+
 function handleGetAllBooks(request, response) {
-  response.json({ books });
+  return response.render("books", {
+    allBooks: books, // Array
+  });
 }
 
 function handleGetBookById(request, response) {

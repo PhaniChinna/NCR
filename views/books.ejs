@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Books</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Books</h1>
+    <table>
+      <thead>
+        <tr>
+          ID
+        </tr>
+        <tr>
+          Isbn
+        </tr>
+        <tr>
+          AuthorName
+        </tr>
+        <tr>
+          BookName
+        </tr>
+        <tr>
+          Pages
+        </tr>
+        <tr>
+          Price
+        </tr>
+      </thead>
+      <tbody>
+        <% allBooks.forEach(book => { %>
+        <tr>
+          <td><%= book.id%></td>
+          <td><%= book.isbn %></td>
+          <td><%= book.authorName %></td>
+          <td><%= book.bookName %></td>
+          <td><%= book.pages %></td>
+          <td><%= book.price %></td>
+        </tr>
+
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

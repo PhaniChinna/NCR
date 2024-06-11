@@ -1,10 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 const app = express();
 
 const BodyRoute = require("./routes/route");
 
 app.use(bodyParser.json());
+app.use(express.static(path.resolve("./static")));
+
+app.set("view engine", "ejs");
+app.set("views", path.resolve("views"));
 
 //Books Data
 // const books = [
@@ -77,6 +82,15 @@ app.use(bodyParser.json());
 
 app.use("/", BodyRoute);
 
+app.get("/hello", function (request, response) {
+  response.sendFile(path.resolve("./hello.html"));
+});
+
 app.listen(8000, () => {
   console.log(`Server Running at http://localhost:8000`);
 });
+
+//path module is resolve through server side rendering
+// static we can use of file in  backend
+//EJS [embedded JS templating ]
+//Vs extension EJS language support
